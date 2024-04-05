@@ -12,7 +12,7 @@
 /**********************************************************************/
 /* Other OBJECT's METHODS (IMPORTED)                                  */
 /**********************************************************************/
-/* #include "keytoktab.h"   */       /* when the keytoktab is added   */
+#include "keytoktab.h"               /* when the keytoktab is added   */
 /* #include "lexer.h"       */       /* when the lexer     is added   */
 /* #include "symtab.h"      */       /* when the symtab    is added   */
 /* #include "optab.h"       */       /* when the optab     is added   */
@@ -29,15 +29,14 @@ static int  is_parse_ok=1;
 /**********************************************************************/
 /* define tokens + keywords NB: remove this when keytoktab.h is added */
 /**********************************************************************/
-enum tvalues {program = 257, id, input, output, var, integer, begin, 
-              equals, number, end};
+//enum tvalues {program = 257, id, input, output, var, integer, begin,  assign, number, end};
 /**********************************************************************/
 /* Simulate the token stream for a given program                      */
 /**********************************************************************/
 static int tokens[] = {program, id, '(', input, ',', output, ')', ';',
                        var, id, ',', id, ',', id, ':', integer, ';',
                        begin, 
-                       id, equals, id, '+', id, '*', number, 
+                       id, assign, id, '+', id, '*', number, 
                        end, '.', 
                        '$'};
 
@@ -53,19 +52,25 @@ static int pget_token()
 /**********************************************************************/
 /*  PRIVATE METHODS for this OBJECT  (using "static" in C)            */
 /**********************************************************************/
+static void in(char* msg) {
+   printf("\n *** In  %s", msg);
+}
 
+static void out(char* msg) {
+   printf("\n *** Out  %s", msg);
+}
 /**********************************************************************/
 /* The Parser functions                                               */
 /**********************************************************************/
 static void match(int t)
 {
-   if(DEBUG) printf("\n --------In match expected: %4d, found: %4d",
-                    t, lookahead);
+   if(DEBUG) printf("\n *** In match expected %-15s found %s",
+                    tok2lex(t), tok2lex(lookahead));
    if (lookahead == t) lookahead = pget_token();
    else {
       is_parse_ok=0;
-      printf("\n *** Unexpected Token: expected: %4d found: %4d (in match)",
-              t, lookahead);
+      printf("\n *** Unexpected Token: expected %-15s found %s (in match)",
+              tok2lex(t), tok2lex(lookahead));
     }
 }
 
@@ -75,61 +80,73 @@ static void match(int t)
 
 /*---------------------- Program Header -----------------------------*/
 static void program_header() {
-   if (DEBUG) printf("\n *** In  program_header");
+   if (DEBUG) in("program_header");
    match(program); match(id); match('('); match(input);
    match(','); match(output); match(')'); match(';');
+   if (DEBUG) out("program_header\n");
 }
 
 /*--------------------------- Variable Part ---------------------------*/
-
 static void type() {
+   if (DEBUG) in("type");
    if (lookahead == integer) { 
       match(integer);
-   } 
+   }
+    if (DEBUG) out("type");
 }
 
 static void id_list() {
+   if (DEBUG) in("id_list");
    match(id);
    if (lookahead == ',') {
       match(',');
       id_list();
    }
+   if (DEBUG) out("id_list");
 }
 
 static void var_dec() {
+   if (DEBUG) in("var_dec");
    id_list();
    match(':');
    type();
    match(';');
+   if (DEBUG) out("var_dec");
 }
 
 static void var_dec_list() {
+   if (DEBUG) in("var_dec_list");
    var_dec();
    if (lookahead == id) {
       var_dec_list();
-   }
+   } 
+   if (DEBUG) out("var_dec_list");
 }
 
 static void var_part() {
-   if (DEBUG) printf("\n *** In  var_part");
+   if (DEBUG) in("var_part");
    if (lookahead == var) {
       match(lookahead);
       var_dec_list();
    }
+   if (DEBUG) out("var_part\n");
 }
 
 /*--------------------------- Statement Part --------------------------*/
 static void expr();
 
 static void operand() {
+   if (DEBUG) in("operand");
    if (lookahead == id) {
       match(id);
    } else {
       match(number);
    }
+   if (DEBUG) out("operand");
 }
 
 static void factor() {
+   if (DEBUG) in("factor");
    if (lookahead == '(') {
       match('(');
       expr();
@@ -137,48 +154,60 @@ static void factor() {
    } else {
       operand();
    }
+   if (DEBUG) out("factor");
 }
 
 static void term() {
+   if (DEBUG) in("term");
    factor();
    if (lookahead == '*') {
       match('*');
       term();
    }
+   if (DEBUG) out("term");
 }
 
 static void expr() {
+   if (DEBUG) in("expr");
    term();
    if (lookahead == '+') {
       match('+');
       expr();
    }
+   if (DEBUG) out("expr");
 }
 
 static void assign_stat() {
+   if (DEBUG) in("assign_stat");
    match(id);
-   match(equals);
+   match(assign);
    expr();
+   if (DEBUG) out("assign_stat");
 }
 
 static void stat() {
+   if (DEBUG) in("stat");
    assign_stat();
+   if (DEBUG) out("stat");
 }
 
 static void stat_list() {
+   if (DEBUG) in("stat_list");
    stat();
    if (lookahead == ';') {
       match(';');
       stat_list();
    }
+   if (DEBUG) out("stat_list");
 }
 
 static void stat_part() {
-   if (DEBUG) printf("\n *** In stat_part");
+   if (DEBUG) in("stat_part");
    match(begin);
    stat_list();
    match(end);
    match('.');
+   if (DEBUG) out("stat_part");
 }
    
 /**********************************************************************/

@@ -1,4 +1,4 @@
-# DVGC01_Labb1
+# pas2ast
 
 A simple Pascal lexer/parser implemented in C for the DVGC01 lab.
 
@@ -56,3 +56,4 @@ make clean
 ## Notes
 - The parser reads from stdin, so use input redirection (<)
 - Test files are located in the TestSuite/ directory
+

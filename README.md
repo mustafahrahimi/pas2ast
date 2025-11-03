@@ -7,10 +7,9 @@ A simple Pascal lexer/parser implemented in C for the DVGC01 lab.
 - Git
 
 ## Clone
-Replace `<repository-url>` with the project URL:
 ```bash
-git clone <repository-url>
-cd "Lexer-Parser in C"
+git clone https://github.com/mustafahrahimi/pas2ast.git
+cd "pas2ast"
 ```
 
 ## Build
@@ -56,4 +55,5 @@ make clean
 ## Notes
 - The parser reads from stdin, so use input redirection (<)
 - Test files are located in the TestSuite/ directory
+
 

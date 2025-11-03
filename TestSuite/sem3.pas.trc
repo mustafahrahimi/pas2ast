@@ -1,0 +1,123 @@
+program sem3(input, output);
+var A, B, C: double;
+
+begin
+A := B + C * 2
+end.
+
+ *** In  Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program sem3(input, output);
+var A, B, C: double;
+
+begin
+A := B + C * 2
+end.
+$
+________________________________________________________ 
+ *** In  program_header 
+ *** In  match      expected program found program 
+ *** In  match      expected id found sem3 
+ *** In  match      expected ( found ( 
+ *** In  match      expected input found input 
+ *** In  match      expected , found , 
+ *** In  match      expected output found output 
+ *** In  match      expected ) found ) 
+ *** In  match      expected ; found ; 
+ *** Out program_header
+ 
+ *** In  var_part   
+ *** In  match      expected var found var 
+ *** In  var_dec_list 
+ *** In  var_dec    
+ *** In  id_list    
+ *** In  match      expected id found A 
+ *** In  match      expected , found , 
+ *** In  id_list    
+ *** In  match      expected id found B 
+ *** In  match      expected , found , 
+ *** In  id_list    
+ *** In  match      expected id found C 
+ *** Out id_list    
+ *** Out id_list    
+ *** Out id_list    
+ *** In  match      expected : found : 
+ *** In  type       
+SYNTAX:   Type name expected found double 
+ *** Out type       
+ *** In  match      
+SYNTAX:   Symbol expected ; found double 
+ *** Out var_dec    
+ *** In  var_dec_list 
+ *** In  var_dec    
+ *** In  id_list    
+ *** In  match      expected id found double 
+ *** Out id_list    
+ *** In  match      
+SYNTAX:   Symbol expected : found ; 
+ *** In  type       
+SYNTAX:   Type name expected found ; 
+ *** Out type       
+ *** In  match      expected ; found ; 
+ *** Out var_dec    
+ *** Out var_dec_list 
+ *** Out var_dec_list 
+ *** Out var_part
+  
+ *** In  stat_part  
+ *** In  match      expected begin found begin 
+ *** In  stat_list  
+ *** In  stat       
+ *** In  assign_stat 
+ *** In  match      expected id found A 
+ *** In  match      expected := found := 
+ *** In  expr       
+ *** In  term       
+ *** In  factor     
+ *** In  operand    
+ *** In  match      expected id found B 
+ *** Out operand    
+ *** Out factor     
+ *** Out term       
+ *** In  match      expected + found + 
+ *** In  expr       
+ *** In  term       
+ *** In  factor     
+ *** In  operand    
+ *** In  match      expected id found C 
+ *** Out operand    
+ *** Out factor     
+ *** In  match      expected * found * 
+ *** In  term       
+ *** In  factor     
+ *** In  operand    
+ *** In  match      expected number found 2 
+ *** Out operand    
+ *** Out factor     
+ *** Out term       
+ *** Out term       
+ *** Out expr       
+ *** Out expr       
+SEMANTIC: Assign types: error := undef
+ *** Out assign_stat 
+ *** Out stat_list  
+ *** In  match      expected end found end 
+ *** In  match      expected . found . 
+ *** Out stat_part
+ 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       sem3    program    program         0         0 
+          A        var      error         0         0 
+          B        var      error         0         0 
+          C        var      error         0         0 
+     double        var      error         0         0 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 0 BYTES
+________________________________________________________ 

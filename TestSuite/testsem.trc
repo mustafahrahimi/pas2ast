@@ -1,0 +1,436 @@
+testing semtests/sem1.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program sem1(input, output);
+var A, B, C: integer;
+
+begin
+A := D + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found sem1 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found D 
+SEMANTIC: ID NOT declared: D
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: integer := undef
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       sem1    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing semtests/sem2.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program sem2(input, output);
+var A, B, A: integer;
+
+begin
+A := B + C * 2
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found sem2 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found A 
+SEMANTIC: ID already declared: A
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+SEMANTIC: ID NOT declared: C
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: integer := undef
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       sem2    program    program         8         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 8 BYTES
+________________________________________________________ 
+testing semtests/sem3.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program sem3(input, output);
+var A, B, C: double;
+
+begin
+A := B + C * 2
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found sem3 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+SYNTAX:   Type name expected found double 
+ *** In match      
+SYNTAX:   Symbol expected ; found double 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found double 
+ *** In match      
+SYNTAX:   Symbol expected : found ; 
+ *** In type       
+SYNTAX:   Type name expected found ; 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: error := undef
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       sem3    program    program         0         0 
+          A        var      error         0         0 
+          B        var      error         0         0 
+          C        var      error         0         0 
+     double        var      error         0         0 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 0 BYTES
+________________________________________________________ 
+testing semtests/sem4.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program sem4(input, output);
+var A, B, C: integer;
+    D, E, F: real;
+
+begin
+F := B + C * 2
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found sem4 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found D 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found E 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found F 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected real found real 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found F 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: real := integer
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       sem4    program    program        36         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+          D        var       real         8        12 
+          E        var       real         8        20 
+          F        var       real         8        28 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 36 BYTES
+________________________________________________________ 
+testing semtests/sem5.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program sem5(input, output);
+var A, B, C: integer;
+    D, E, F: real;
+
+begin
+A := D + E * 2
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found sem5 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found D 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found E 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found F 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected real found real 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found D 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found E 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: integer := real
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       sem5    program    program        36         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+          D        var       real         8        12 
+          E        var       real         8        20 
+          F        var       real         8        28 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 36 BYTES
+________________________________________________________ 

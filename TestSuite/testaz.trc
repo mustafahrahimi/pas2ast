@@ -1,0 +1,1978 @@
+testing testaztests/testa.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+
+$
+________________________________________________________ 
+SYNTAX:   Input file is empty 
+ 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 0 BYTES
+________________________________________________________ 
+testing testaztests/testb.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+   testb(input, output);
+var A, B, C: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      
+SYNTAX:   Symbol expected program found testb 
+ *** In match      expected id found testb 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testb    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testc.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program (input, output);
+var A, B, C: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+SYNTAX:   ID expected found  ( 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+        ???    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testd.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testd input, output);
+var A, B, C: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testd 
+ *** In match      
+SYNTAX:   Symbol expected ( found input 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testd    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/teste.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program teste ( , output);
+var A, B, C: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found teste 
+ *** In match      expected ( found ( 
+ *** In match      
+SYNTAX:   Symbol expected input found , 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      teste    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testf.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testf (input  output);
+var A, B, C: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testf 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      
+SYNTAX:   Symbol expected , found output 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testf    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testg.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testg (input, );
+var A, B, C: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testg 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      
+SYNTAX:   Symbol expected output found ) 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testg    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testh.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testh (input, output ;
+var A, B, C: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testh 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      
+SYNTAX:   Symbol expected ) found ; 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testh    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testi.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testi (input, output) 
+var A, B, C: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testi 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      
+SYNTAX:   Symbol expected ; found var 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testi    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testj.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testj (input, output);
+  A, B, C: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testj 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      
+SYNTAX:   Symbol expected var found A 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testj    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testk.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testk (input, output);
+var , B, C: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testk 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+SYNTAX:   ID expected found  , 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+SEMANTIC: ID NOT declared: A
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: error := integer
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testk    program    program         8         0 
+          B        var    integer         4         0 
+          C        var    integer         4         4 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 8 BYTES
+________________________________________________________ 
+testing testaztests/testl.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testl (input, output);
+var A  B, C: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testl 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      
+SYNTAX:   Symbol expected : found B 
+ *** In type       
+SYNTAX:   Type name expected found B 
+ *** In match      
+SYNTAX:   Symbol expected ; found B 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: error := integer
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testl    program    program         8         0 
+          A        var      error         0         0 
+          B        var    integer         4         0 
+          C        var    integer         4         4 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 8 BYTES
+________________________________________________________ 
+testing testaztests/testm.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testm (input, output);
+var A, B, C  integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testm 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      
+SYNTAX:   Symbol expected : found integer 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testm    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testn.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testn (input, output);
+var A, B, C: ;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testn 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+SYNTAX:   Type name expected found ; 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: error := undef
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testn    program    program         0         0 
+          A        var      error         0         0 
+          B        var      error         0         0 
+          C        var      error         0         0 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 0 BYTES
+________________________________________________________ 
+testing testaztests/testo.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testo (input, output);
+var A, B, C: integer
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testo 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      
+SYNTAX:   Symbol expected ; found begin 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testo    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testp.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testp (input, output);
+var A, B, C: integer;
+
+
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testp 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+SEMANTIC: ID already declared: A
+ *** In match      
+SYNTAX:   Symbol expected : found := 
+ *** In type       
+SYNTAX:   Type name expected found := 
+ *** In match      
+SYNTAX:   Symbol expected ; found := 
+ *** In stat_part  
+ *** In match      
+SYNTAX:   Symbol expected begin found := 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+SYNTAX:   ID expected found := 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: error := integer
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testp    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testq.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testq (input, output);
+var A, B, C: integer;
+
+begin
+ := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testq 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+SYNTAX:   ID expected found := 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: error := integer
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testq    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testr.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testr (input, output);
+var A, B, C: integer;
+
+begin
+ A = B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testr 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      
+SYNTAX:   Symbol expected := found = 
+ *** In expr       
+ *** In term       
+ *** In factor     
+SYNTAX:   SKIPPING UNEXPECTED SYMBOL (in factor) = 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign expression type error 
+SEMANTIC: Assign types: integer := error
+ *** In match      
+SYNTAX:   Symbol expected end found B 
+ *** In match      
+SYNTAX:   Symbol expected . found B 
+SYNTAX:   Extra symbols after end of parse! 
+          B + C * 2 end . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testr    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/tests.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program tests (input, output);
+var A, B, C: integer;
+
+begin
+ A : B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found tests 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      
+SYNTAX:   Symbol expected := found : 
+ *** In expr       
+ *** In term       
+ *** In factor     
+SYNTAX:   SKIPPING UNEXPECTED SYMBOL (in factor) : 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign expression type error 
+SEMANTIC: Assign types: integer := error
+ *** In match      
+SYNTAX:   Symbol expected end found B 
+ *** In match      
+SYNTAX:   Symbol expected . found B 
+SYNTAX:   Extra symbols after end of parse! 
+          B + C * 2 end . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      tests    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testt.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testt (input, output);
+var A, B, C: integer;
+
+begin
+ A  B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testt 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      
+SYNTAX:   Symbol expected := found B 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testt    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testu.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testu (input, output);
+var A, B, C: integer;
+
+begin
+ A := + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testu 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+SYNTAX:   SKIPPING UNEXPECTED SYMBOL (in factor) + 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign expression type error 
+SEMANTIC: Assign types: integer := error
+ *** In match      
+SYNTAX:   Symbol expected end found C 
+ *** In match      
+SYNTAX:   Symbol expected . found C 
+SYNTAX:   Extra symbols after end of parse! 
+          C * 2 end . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testu    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testv.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testv (input, output);
+var A, B, C: integer;
+
+begin
+ A := B  C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testv 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      
+SYNTAX:   Symbol expected end found C 
+ *** In match      
+SYNTAX:   Symbol expected . found C 
+SYNTAX:   Extra symbols after end of parse! 
+          C * 2 end . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testv    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testw.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testw (input, output);
+var A, B, C: integer;
+
+begin
+ A := B + C - 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testw 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In R1         
+ *** In match      
+SYNTAX:   Symbol expected end found - 
+ *** In match      
+SYNTAX:   Symbol expected . found - 
+SYNTAX:   Extra symbols after end of parse! 
+          - 2 end . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testw    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testx.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testx (input, output);
+var A, B, C: integer;
+
+begin
+ A := B + C * 2 ;  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testx 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected ; found ; 
+ *** In stat       
+ *** In assign_stat 
+SYNTAX:   ID expected found end 
+ *** In match      
+SYNTAX:   Symbol expected := found end 
+ *** In expr       
+ *** In term       
+ *** In factor     
+SYNTAX:   SKIPPING UNEXPECTED SYMBOL (in factor) end 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign expression type error 
+ *** In match      
+SYNTAX:   Symbol expected end found . 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testx    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testy.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testy (input, output);
+var A, B, C: integer;
+
+begin
+ A := B + C * 2
+.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testy 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      
+SYNTAX:   Symbol expected end found . 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testy    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testaztests/testz.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testz (input, output);
+var A, B, C: integer;
+
+begin
+ A := B + C * 2
+end 
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testz 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      
+SYNTAX:   Symbol expected . found $ 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+      testz    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 

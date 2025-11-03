@@ -1,0 +1,745 @@
+testing testoktests/testok1.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testok1(input, output);  
+var A, B, C: integer;  
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testok1 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+PARSE SUCCESSFUL! 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+    testok1    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testoktests/testok2.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testok2(input, output);
+var A, B, C: integer;  
+    D, E, F: integer;
+    G, H, I: integer;
+
+begin
+A := B + C * 2;
+D := E + F * 2;
+G := H + I * 2
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testok2 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found D 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found E 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found F 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found G 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found H 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found I 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected ; found ; 
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found D 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found E 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found F 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected ; found ; 
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found G 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found H 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found I 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+PARSE SUCCESSFUL! 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+    testok2    program    program        36         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+          D        var    integer         4        12 
+          E        var    integer         4        16 
+          F        var    integer         4        20 
+          G        var    integer         4        24 
+          H        var    integer         4        28 
+          I        var    integer         4        32 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 36 BYTES
+________________________________________________________ 
+testing testoktests/testok3.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testok3(input, output);
+var A, B, C: integer;  
+
+begin
+A := 2 + 6 * 8;
+B := 3 + 9 * 1;
+C := 4 + 1 * 1
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testok3 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected number found 6 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 8 
+ *** In R2         
+ *** In R1         
+ *** In match      expected ; found ; 
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found B 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected number found 3 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected number found 9 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 1 
+ *** In R2         
+ *** In R1         
+ *** In match      expected ; found ; 
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found C 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected number found 4 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected number found 1 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 1 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+PARSE SUCCESSFUL! 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+    testok3    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testoktests/testok4.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testok4(input, output);
+var A, B, C: integer;  
+    DD, EE, FF: integer;
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testok4 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found DD 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found EE 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found FF 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+PARSE SUCCESSFUL! 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+    testok4    program    program        24         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+         DD        var    integer         4        12 
+         EE        var    integer         4        16 
+         FF        var    integer         4        20 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 24 BYTES
+________________________________________________________ 
+testing testoktests/testok5.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testok5(input, output);
+var x, y, z: integer;
+    A: integer;
+    B: integer;
+    C: integer;
+
+begin
+x := y + z * 2;
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testok5 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found x 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found y 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found z 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found x 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found y 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found z 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected ; found ; 
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+PARSE SUCCESSFUL! 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+    testok5    program    program        24         0 
+          x        var    integer         4         0 
+          y        var    integer         4         4 
+          z        var    integer         4         8 
+          A        var    integer         4        12 
+          B        var    integer         4        16 
+          C        var    integer         4        20 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 24 BYTES
+________________________________________________________ 
+testing testoktests/testok6.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testok6(input, output);
+var id, number, assign: integer;
+
+begin
+id := number + assign * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testok6 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found id 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found number 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found assign 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found id 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found number 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found assign 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+PARSE SUCCESSFUL! 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+    testok6    program    program        12         0 
+         id        var    integer         4         0 
+     number        var    integer         4         4 
+     assign        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing testoktests/testok7.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testok7(input, output);
+var
+    A: integer;
+    B: integer;
+    C: integer;
+
+begin
+A := B + C * 2
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found testok7 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+PARSE SUCCESSFUL! 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+    testok7    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 

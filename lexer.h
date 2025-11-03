@@ -2,14 +2,15 @@
 /* constants & public functions                                       */
 /**********************************************************************/
 
-#ifndef PARSER_H
-#define PARSER_H
+#ifndef LEX_H
+#define LEX_H
 
 /**********************************************************************/
 /*  PUBLIC METHODS for this OBJECT  (EXPORTED)                        */
 /**********************************************************************/
 
-int parser();                     /* the parser !                    */
+int    get_token();                   /* return a token               */
+char * get_lexeme();                  /* return a lexeme              */
 
 #endif
 

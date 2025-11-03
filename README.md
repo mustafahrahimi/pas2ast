@@ -2,6 +2,9 @@
 
 A simple Pascal lexer/parser implemented in C for the DVGC01 lab.
 
+## Description
+This project implements a lexical analyzer and recursive descent parser for a subset of the Pascal programming language. The lexer tokenizes Pascal source code while the parser builds an abstract syntax tree (AST) and performs syntax analysis. Built as part of compiler construction coursework.
+
 ## Prerequisites
 - C compiler (gcc/clang) or Make
 - Git
@@ -55,5 +58,3 @@ make clean
 ## Notes
 - The parser reads from stdin, so use input redirection (<)
 - Test files are located in the TestSuite/ directory
-
-

@@ -1,0 +1,95 @@
+program fun2(input, output);
+var A, B, C: integer;
+
+begin
+3A := B + C * 2
+end.
+
+ *** In  Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program fun2(input, output);
+var A, B, C: integer;
+
+begin
+3A := B + C * 2
+end.
+$
+________________________________________________________ 
+ *** In  program_header 
+ *** In  match      expected program found program 
+ *** In  match      expected id found fun2 
+ *** In  match      expected ( found ( 
+ *** In  match      expected input found input 
+ *** In  match      expected , found , 
+ *** In  match      expected output found output 
+ *** In  match      expected ) found ) 
+ *** In  match      expected ; found ; 
+ *** Out program_header
+ 
+ *** In  var_part   
+ *** In  match      expected var found var 
+ *** In  var_dec_list 
+ *** In  var_dec    
+ *** In  id_list    
+ *** In  match      expected id found A 
+ *** In  match      expected , found , 
+ *** In  id_list    
+ *** In  match      expected id found B 
+ *** In  match      expected , found , 
+ *** In  id_list    
+ *** In  match      expected id found C 
+ *** Out id_list    
+ *** Out id_list    
+ *** Out id_list    
+ *** In  match      expected : found : 
+ *** In  type       
+ *** In  match      expected integer found integer 
+ *** Out type       
+ *** In  match      expected ; found ; 
+ *** Out var_dec    
+ *** Out var_dec_list 
+ *** Out var_part
+  
+ *** In  stat_part  
+ *** In  match      expected begin found begin 
+ *** In  stat_list  
+ *** In  stat       
+ *** In  assign_stat 
+SYNTAX:   ID expected found 3 
+ *** In  match      
+SYNTAX:   Symbol expected := found 3 
+ *** In  expr       
+ *** In  term       
+ *** In  factor     
+ *** In  operand    
+ *** In  match      expected number found 3 
+ *** Out operand    
+ *** Out factor     
+ *** Out term       
+ *** Out expr       
+SEMANTIC: Assign types: error := integer
+ *** Out assign_stat 
+ *** Out stat_list  
+ *** In  match      
+SYNTAX:   Symbol expected end found A 
+ *** In  match      
+SYNTAX:   Symbol expected . found A 
+ *** Out stat_part
+ 
+SYNTAX:   Extra symbols after end of parse! 
+          A := B + C * 2 end . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       fun2    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 

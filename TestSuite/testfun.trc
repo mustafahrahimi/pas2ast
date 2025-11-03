@@ -1,0 +1,405 @@
+testing funtests/fun1.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program fun1(input, output);
+var A, B, A: integer;  
+
+begin
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found fun1 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found A 
+SEMANTIC: ID already declared: A
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+SEMANTIC: ID NOT declared: C
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: integer := undef
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       fun1    program    program         8         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 8 BYTES
+________________________________________________________ 
+testing funtests/fun2.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program fun2(input, output);
+var A, B, C: integer;
+
+begin
+3A := B + C * 2
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found fun2 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+SYNTAX:   ID expected found 3 
+ *** In match      
+SYNTAX:   Symbol expected := found 3 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected number found 3 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign types: error := integer
+ *** In match      
+SYNTAX:   Symbol expected end found A 
+ *** In match      
+SYNTAX:   Symbol expected . found A 
+SYNTAX:   Extra symbols after end of parse! 
+          A := B + C * 2 end . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       fun2    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing funtests/fun3.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program fun3(input, output);
+var A, B, C: integer;
+
+begin
+A :
+   = B + C * 2
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found fun3 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      
+SYNTAX:   Symbol expected := found : 
+ *** In expr       
+ *** In term       
+ *** In factor     
+SYNTAX:   SKIPPING UNEXPECTED SYMBOL (in factor) : 
+ *** In R2         
+ *** In R1         
+SEMANTIC: Assign expression type error 
+SEMANTIC: Assign types: integer := error
+ *** In match      
+SYNTAX:   Symbol expected end found = 
+ *** In match      
+SYNTAX:   Symbol expected . found = 
+SYNTAX:   Extra symbols after end of parse! 
+          = B + C * 2 end . 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       fun3    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 
+testing funtests/fun4.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program fun4(input, output);
+var A, B, C: integer;
+    D, E, F: integer;
+
+begin
+A := B + C * 2
+end.
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found fun4 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found D 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found E 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found F 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+PARSE SUCCESSFUL! 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       fun4    program    program        24         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+          D        var    integer         4        12 
+          E        var    integer         4        16 
+          F        var    integer         4        20 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 24 BYTES
+________________________________________________________ 
+testing funtests/fun5.pas
+
+ *** In Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program fun5(input, output);
+var A, B, C: integer;
+
+begin
+A := B + C * 2
+end.
+
+OOOOPS!!!
+
+
+$
+________________________________________________________ 
+ *** In program_header 
+ *** In match      expected program found program 
+ *** In match      expected id found fun5 
+ *** In match      expected ( found ( 
+ *** In match      expected input found input 
+ *** In match      expected , found , 
+ *** In match      expected output found output 
+ *** In match      expected ) found ) 
+ *** In match      expected ; found ; 
+ *** In var_part   
+ *** In match      expected var found var 
+ *** In var_dec_list 
+ *** In var_dec    
+ *** In id_list    
+ *** In match      expected id found A 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found B 
+ *** In match      expected , found , 
+ *** In id_list    
+ *** In match      expected id found C 
+ *** In match      expected : found : 
+ *** In type       
+ *** In match      expected integer found integer 
+ *** In match      expected ; found ; 
+ *** In stat_part  
+ *** In match      expected begin found begin 
+ *** In stat_list  
+ *** In stat       
+ *** In assign_stat 
+ *** In match      expected id found A 
+ *** In match      expected := found := 
+ *** In expr       
+ *** In term       
+ *** In factor     
+ *** In match      expected id found B 
+ *** In R2         
+ *** In R1         
+ *** In match      expected + found + 
+ *** In term       
+ *** In factor     
+ *** In match      expected id found C 
+ *** In R2         
+ *** In match      expected * found * 
+ *** In factor     
+ *** In match      expected number found 2 
+ *** In R2         
+ *** In R1         
+ *** In match      expected end found end 
+ *** In match      expected . found . 
+SYNTAX:   Extra symbols after end of parse! 
+          OOOOPS ! ! ! 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+       fun5    program    program        12         0 
+          A        var    integer         4         0 
+          B        var    integer         4         4 
+          C        var    integer         4         8 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 12 BYTES
+________________________________________________________ 

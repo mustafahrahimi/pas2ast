@@ -1,0 +1,190 @@
+program testok5(input, output);
+var x, y, z: integer;
+    A: integer;
+    B: integer;
+    C: integer;
+
+begin
+x := y + z * 2;
+A := B + C * 2  
+end.
+
+ *** In  Parser     
+________________________________________________________ 
+ THE PROGRAM TEXT
+________________________________________________________ 
+program testok5(input, output);
+var x, y, z: integer;
+    A: integer;
+    B: integer;
+    C: integer;
+
+begin
+x := y + z * 2;
+A := B + C * 2  
+end.
+$
+________________________________________________________ 
+ *** In  program_header 
+ *** In  match      expected program found program 
+ *** In  match      expected id found testok5 
+ *** In  match      expected ( found ( 
+ *** In  match      expected input found input 
+ *** In  match      expected , found , 
+ *** In  match      expected output found output 
+ *** In  match      expected ) found ) 
+ *** In  match      expected ; found ; 
+ *** Out program_header
+ 
+ *** In  var_part   
+ *** In  match      expected var found var 
+ *** In  var_dec_list 
+ *** In  var_dec    
+ *** In  id_list    
+ *** In  match      expected id found x 
+ *** In  match      expected , found , 
+ *** In  id_list    
+ *** In  match      expected id found y 
+ *** In  match      expected , found , 
+ *** In  id_list    
+ *** In  match      expected id found z 
+ *** Out id_list    
+ *** Out id_list    
+ *** Out id_list    
+ *** In  match      expected : found : 
+ *** In  type       
+ *** In  match      expected integer found integer 
+ *** Out type       
+ *** In  match      expected ; found ; 
+ *** Out var_dec    
+ *** In  var_dec_list 
+ *** In  var_dec    
+ *** In  id_list    
+ *** In  match      expected id found A 
+ *** Out id_list    
+ *** In  match      expected : found : 
+ *** In  type       
+ *** In  match      expected integer found integer 
+ *** Out type       
+ *** In  match      expected ; found ; 
+ *** Out var_dec    
+ *** In  var_dec_list 
+ *** In  var_dec    
+ *** In  id_list    
+ *** In  match      expected id found B 
+ *** Out id_list    
+ *** In  match      expected : found : 
+ *** In  type       
+ *** In  match      expected integer found integer 
+ *** Out type       
+ *** In  match      expected ; found ; 
+ *** Out var_dec    
+ *** In  var_dec_list 
+ *** In  var_dec    
+ *** In  id_list    
+ *** In  match      expected id found C 
+ *** Out id_list    
+ *** In  match      expected : found : 
+ *** In  type       
+ *** In  match      expected integer found integer 
+ *** Out type       
+ *** In  match      expected ; found ; 
+ *** Out var_dec    
+ *** Out var_dec_list 
+ *** Out var_dec_list 
+ *** Out var_dec_list 
+ *** Out var_dec_list 
+ *** Out var_part
+  
+ *** In  stat_part  
+ *** In  match      expected begin found begin 
+ *** In  stat_list  
+ *** In  stat       
+ *** In  assign_stat 
+ *** In  match      expected id found x 
+ *** In  match      expected := found := 
+ *** In  expr       
+ *** In  term       
+ *** In  factor     
+ *** In  operand    
+ *** In  match      expected id found y 
+ *** Out operand    
+ *** Out factor     
+ *** Out term       
+ *** In  match      expected + found + 
+ *** In  expr       
+ *** In  term       
+ *** In  factor     
+ *** In  operand    
+ *** In  match      expected id found z 
+ *** Out operand    
+ *** Out factor     
+ *** In  match      expected * found * 
+ *** In  term       
+ *** In  factor     
+ *** In  operand    
+ *** In  match      expected number found 2 
+ *** Out operand    
+ *** Out factor     
+ *** Out term       
+ *** Out term       
+ *** Out expr       
+ *** Out expr       
+ *** Out assign_stat 
+ *** In  match      expected ; found ; 
+ *** In  stat_list  
+ *** In  stat       
+ *** In  assign_stat 
+ *** In  match      expected id found A 
+ *** In  match      expected := found := 
+ *** In  expr       
+ *** In  term       
+ *** In  factor     
+ *** In  operand    
+ *** In  match      expected id found B 
+ *** Out operand    
+ *** Out factor     
+ *** Out term       
+ *** In  match      expected + found + 
+ *** In  expr       
+ *** In  term       
+ *** In  factor     
+ *** In  operand    
+ *** In  match      expected id found C 
+ *** Out operand    
+ *** Out factor     
+ *** In  match      expected * found * 
+ *** In  term       
+ *** In  factor     
+ *** In  operand    
+ *** In  match      expected number found 2 
+ *** Out operand    
+ *** Out factor     
+ *** Out term       
+ *** Out term       
+ *** Out expr       
+ *** Out expr       
+ *** Out assign_stat 
+ *** Out stat_list  
+ *** Out stat_list  
+ *** In  match      expected end found end 
+ *** In  match      expected . found . 
+ *** Out stat_part
+ 
+PARSE SUCCESSFUL! 
+________________________________________________________ 
+________________________________________________________ 
+ THE SYMBOL TABLE
+________________________________________________________ 
+       NAME       ROLE       TYPE      SIZE      ADDR     
+________________________________________________________ 
+    testok5    program    program        24         0 
+          x        var    integer         4         0 
+          y        var    integer         4         4 
+          z        var    integer         4         8 
+          A        var    integer         4        12 
+          B        var    integer         4        16 
+          C        var    integer         4        20 
+________________________________________________________ 
+ STATIC STORAGE REQUIRED is 24 BYTES
+________________________________________________________ 
